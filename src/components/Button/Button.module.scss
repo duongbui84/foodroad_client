@@ -1,0 +1,103 @@
+.wrapper {
+  min-width: 100px;
+  padding: 10px 16px;
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 900;
+  background-color: var(--white-down);
+  border: solid 1px transparent;
+  cursor: pointer;
+  + .wrapper {
+    margin-left: 14px;
+  }
+}
+
+.text-button {
+  font-family: 'Proxima';
+}
+
+//style button classess
+.primary {
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  &:hover {
+    transition: 0.3s linear;
+    color: var(--primary-color);
+    background-color: #fff;
+  }
+}
+
+.primaryHover {
+  border-radius: 8px;
+  background-color: #fff;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  &:hover {
+    transition: 0.3s linear;
+    color: #fff;
+    background-color: var(--primary-color);
+  }
+}
+
+.onlyText {
+  background-color: var(--white-down);
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.maxContent {
+  max-width: max-content;
+  margin-top: 24px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pageBtn {
+  min-width: 32px !important;
+  height: 40px !important;
+  line-height: 40px;
+  color: var(--text-color);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0;
+  transition: all 0.1s linear;
+  &:hover {
+    border-color: var(--text-color);
+  }
+}
+
+.active {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  &:hover {
+    cursor: default;
+    border-color: var(--primary-color);
+  }
+}
+
+//size button classess
+// .small {
+// }
+
+// .medium {
+// }
+
+// .large {
+// }
+
+@font-face {
+  font-family: Proxima;
+  src: url('/assets/fonts/Proxima/Proxima-Nova-Bold.woff2');
+}
+@font-face {
+  font-family: Proxima;
+  src: url('/assets/fonts/Proxima/Proxima-Nova-Semibold.woff2');
+}
+@font-face {
+  font-family: Proxima;
+  src: url('/assets/fonts/Proxima/Proxima-Nova-Regular.woff2');
+}

@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  width: 72px;
+  height: 72px;
+  font-size: 1.8rem;
+  &:hover {
+    background-color: #f4eeee;
+  }
+}
+
+.active {
+  background-color: #e5e5e5;
+  &:hover {
+    background-color: #e5e5e5;
+  }
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 2.6rem;
+  color: var(--text-color);
+}

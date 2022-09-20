@@ -1,0 +1,72 @@
+//middle element
+.search,
+.search-result {
+  width: 420px;
+}
+
+.search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background-color: var(--white-down);
+  height: 40px;
+  border: #ccc solid 1.5px;
+  border-radius: 9999px;
+  justify-content: flex-start;
+  align-items: center;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+
+  input {
+    background-color: var(--white-down);
+    margin-left: 42px;
+    width: 338px;
+    height: 26px;
+    font-size: 1.4rem;
+  }
+  input:not(:placeholder-shown) ~ .icon-search {
+    opacity: 1;
+  }
+  &:focus-within {
+    border: #555 solid 1.5px;
+  }
+}
+
+.icon-search {
+  position: absolute;
+  font-size: 2rem;
+  margin: 3px 14px 0 14px;
+  opacity: 0.7;
+  transition: 0.4s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.icon-clear {
+  justify-content: flex-end;
+  margin-left: 4px;
+  transition: 0.3s;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.icon-loading {
+  justify-content: flex-end;
+  margin-left: 4px;
+  animation: spinning 1s linear infinite;
+}
+
+@keyframes spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

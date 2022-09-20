@@ -1,0 +1,19 @@
+.food-search {
+  display: flex;
+  &:hover {
+    background-color: var(--white-down);
+  }
+}
+
+.food-img {
+  margin: 5px 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+}
+
+.food-info {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}

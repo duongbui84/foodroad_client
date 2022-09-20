@@ -1,0 +1,15 @@
+.background-item {
+  display: block;
+  height: 196px;
+  font-size: 3rem;
+  font-weight: bolder;
+  line-height: 200px;
+  letter-spacing: -1px;
+  color: var(--white);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: ease 0.3s;
+  &:hover {
+    font-size: 4rem;
+  }
+}

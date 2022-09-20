@@ -1,0 +1,14 @@
+{
+  "food": [
+    {
+      "food-id": 1,
+      "name": "Lẩu thập cẩm",
+      "image": "url"
+    },
+    {
+      "food-id": 2,
+      "name": "Lẩu bò",
+      "image": "url1"
+    }
+  ]
+}
