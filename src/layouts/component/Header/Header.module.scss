@@ -165,9 +165,6 @@
   &:hover {
     color: #000;
     font-weight: 600;
-    & .sub-sidebar-icon {
-      color: var(--text-color);
-    }
   }
 }
 
@@ -178,4 +175,21 @@
 .active {
   color: #000;
   font-weight: 600;
+}
+
+.account-btn-tablet {
+  display: block;
+  margin-left: 8px;
+  &:hover {
+    cursor: pointer;
+    color: #000;
+    font-weight: 600;
+  }
+}
+
+.separation-line {
+  margin: 4px auto;
+  content: '';
+  width: 100%;
+  border-bottom: 1.5px solid var(--white-down);
 }

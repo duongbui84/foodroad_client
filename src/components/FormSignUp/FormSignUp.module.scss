@@ -1,0 +1,140 @@
+.invalid input {
+  border: 1.2px solid #f93b3b !important;
+}
+.invalid span {
+  color: #f93b3b;
+}
+
+.wrapper {
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.exit-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 4px;
+}
+
+.form {
+  position: relative;
+  display: block;
+  width: 40rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: aliceblue;
+  border-radius: 3px;
+  margin-top: 10px;
+  padding: 2rem 1rem;
+  text-align: center;
+  & h2 {
+    color: var(--primary-color);
+  }
+  & p {
+    margin-bottom: 1.4rem;
+    font-size: 18px;
+  }
+  & i {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    font-size: 1.4rem;
+  }
+}
+
+.separation-line {
+  margin: 0 auto 6px;
+  content: '';
+  width: 100%;
+  border-bottom: 1.5px solid var(--primary-color);
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16px 32px;
+  text-align: left;
+}
+.form-label {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+}
+.form-group input {
+  font-size: 14px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1.2px solid #999;
+  outline: none;
+}
+.form-group input:hover {
+  border-color: var(--primary-color);
+}
+.form-message {
+  font-size: 1.4rem;
+  color: #f93b3b;
+  padding-top: 2px;
+}
+.container-btn {
+  margin: 0 32px;
+}
+.submid-btn {
+  width: 100%;
+  padding: 8px 0;
+  margin: 8px 0;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  border: none;
+  transition: 0.4s ease-in;
+  &:hover {
+    background-color: #6c5ce7;
+  }
+}
+
+.text-login {
+  font-size: 14px !important;
+}
+
+.social {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.social-icon-form {
+  margin: 0 8px;
+  transition: 0.3s ease;
+  &:hover {
+    cursor: pointer;
+    color: #6c5ce7;
+  }
+}
+
+.border-error {
+  border-color: #f93b3b !important;
+}
+
+.input-password {
+  width: 100%;
+  position: relative;
+}
+
+.icon-show-password {
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: 6px;
+}
