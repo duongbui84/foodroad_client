@@ -25,7 +25,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { Search } from '~/layouts/component/Search';
 import exampleIcon from '~/assets/image/img-food-icon/ga-6-mon.jpg';
 import FormSignUp from '~/components/FormSignUp/FormSignUp';
-import FormLogIn from '~/components/FormLogIn/FormLogIn';
+import FormSignIn from '~/components/FormSignIn/FormSignIn';
 
 const cx = classNames.bind(styles);
 
@@ -35,7 +35,7 @@ function Header() {
   const [showNoti, setShowNoti] = useState(false);
   const [showSubSidebar, setShowSubSidebar] = useState(false);
   const [showFormSignUp, setShowFormSignUp] = useState(false);
-  const [showFormLogIn, setShowFormLogIn] = useState(false);
+  const [showFormSignIn, setShowFormSignIn] = useState(false);
 
   const handleShowNoti = () => {
     showNoti ? setShowNoti(false) : setShowNoti(true);
@@ -51,12 +51,12 @@ function Header() {
       setShowFormSignUp(false);
     }, 200);
   };
-  const handleShowFormLogIn = () => {
-    setShowFormLogIn(true);
+  const handleShowFormSignIn = () => {
+    setShowFormSignIn(true);
   };
-  const handleHideFormLogIn = () => {
+  const handleHideFormSignIn = () => {
     setTimeout(() => {
-      setShowFormLogIn(false);
+      setShowFormSignIn(false);
     }, 200);
   };
 
@@ -133,8 +133,8 @@ function Header() {
               <Button onClick={handleShowFormSignUp} onlyText>
                 Sign Up
               </Button>
-              <Button onClick={handleShowFormLogIn} primary>
-                Log In
+              <Button onClick={handleShowFormSignIn} primary>
+                Sign In
               </Button>
             </>
           )}
@@ -186,7 +186,7 @@ function Header() {
                   <p onClick={handleShowFormSignUp} className={cx('account-btn-tablet')}>
                     Sign Up
                   </p>
-                  <p onClick={handleShowFormLogIn} className={cx('account-btn-tablet')}>
+                  <p onClick={handleShowFormSignIn} className={cx('account-btn-tablet')}>
                     Log In
                   </p>
                   <div className={cx('separation-line')}></div>
@@ -237,7 +237,7 @@ function Header() {
         </Tippy>
       </header>
       {showFormSignUp ? <FormSignUp onClick={handleHideFormSignUp} /> : null}
-      {showFormLogIn ? <FormLogIn onClick={handleHideFormLogIn} /> : null}
+      {showFormSignIn ? <FormSignIn onClick={handleHideFormSignIn} /> : null}
     </>
   );
 }

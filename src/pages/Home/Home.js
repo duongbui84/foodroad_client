@@ -6,7 +6,7 @@ import { Button } from '~/components/Button';
 import Grid from '~/layouts/GridSystem/Grid';
 import Row from '~/layouts/GridSystem/Row';
 import MaxWidthSection from '~/layouts/GridSystem/MaxWidthSection';
-import { ExperiencesItem } from '../Experiences/ExperiencesItem';
+import { ExperiencesItem } from '../../components/ExperiencesItem';
 import DestinationsContent from '../Destinations/DestinationsContent/DestinationsContent';
 import routesConfig from '~/config/routes';
 import Slider from '~/layouts/component/Slider/Slider';

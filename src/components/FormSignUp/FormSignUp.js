@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { FacebookIcon, TweeterIcon } from '../Icons';
 import styles from './FormSignUp.module.scss';
+import * as authServices from '~/apiServices/authServieces';
 
 const cx = classNames.bind(styles);
 
@@ -16,21 +17,6 @@ function FormSignUp({ onClick }) {
     notPassword: 'Password must be at least 6 characters !',
     passwordIncorrect: 'Password is incorrect !',
   };
-
-  //Handle validate field "Name"
-  const [valueName, setValueName] = useState('');
-  const [errorName, setErrorName] = useState('');
-  const getValueName = (input) => {
-    setValueName(input);
-  };
-  const handleMessageName = () => {
-    if (valueName === '') {
-      setErrorName(message.noValue);
-    } else setErrorName('');
-  };
-  useEffect(() => {
-    setErrorName('');
-  }, [valueName]);
 
   //Handle validate field "Email"
   const [valueEmail, setValueEmail] = useState('');
@@ -87,15 +73,76 @@ function FormSignUp({ onClick }) {
     setErrorPasswordRepeat('');
   }, [valuePasswordRepeat]);
 
+  //Handle validate field "Name"
+  const [valueName, setValueName] = useState('');
+  const [errorName, setErrorName] = useState('');
+  const getValueName = (input) => {
+    setValueName(input);
+  };
+  const handleMessageName = () => {
+    if (valueName === '') {
+      setErrorName(message.noValue);
+    } else setErrorName('');
+  };
+  useEffect(() => {
+    setErrorName('');
+  }, [valueName]);
+
+  //Handle field "Address"
+  const [valueAddress, setValueAddress] = useState('');
+  const [errorAddress, setErrorAddress] = useState('');
+  const getValueAddress = (input) => {
+    setValueAddress(input);
+  };
+  const handleMessageAddress = () => {
+    if (valueAddress === '') {
+      setErrorAddress(message.noValue);
+    } else setErrorAddress('');
+  };
+
+  useEffect(() => {
+    setErrorAddress('');
+  }, [valueAddress]);
+
+  const [valueGender, setValueGender] = useState('1');
+  const getValueGender = (value) => {
+    setValueGender(value);
+  };
   //handle show & hide password
   const [isShowPassword, setIsShowPassWord] = useState(false);
   const handleShowPassword = () => {
     isShowPassword ? setIsShowPassWord(false) : setIsShowPassWord(true);
   };
 
+  const handleSubmit = async (data) => {
+    data.preventDefault();
+    if (
+      !valueEmail ||
+      !valuePassword ||
+      !valueName ||
+      !valueAddress ||
+      valuePassword !== valuePasswordRepeat
+    ) {
+      handleMessageEmail();
+      handleMessageAddress();
+      handleMessageName();
+      handleMessagePassword();
+      handleMessagePasswordRepeat();
+      return;
+    } else {
+      await authServices.signupService(
+        valueEmail,
+        valuePassword,
+        valueName,
+        valueAddress,
+        valueGender,
+      );
+    }
+  };
+
   return (
     <div className={cx('wrapper')}>
-      <form action="" className={cx('form')} id="form-1">
+      <form onSubmit={handleSubmit} method="POST" className={cx('form')} id="form-1">
         <div onClick={onClick} className={cx('exit-btn')}>
           <FontAwesomeIcon icon={faXmark} />
         </div>
@@ -104,23 +151,6 @@ function FormSignUp({ onClick }) {
         <p>To connect with us</p>
         <div className={cx('separation-line')}></div>
 
-        <div className={cx('form-group')}>
-          <label htmlFor="fullname" className={cx('form-label')}>
-            Full Name
-          </label>
-          <input
-            className={cx(errorName ? 'border-error' : '')}
-            onChange={(e) => {
-              getValueName(e.target.value);
-            }}
-            onBlur={handleMessageName}
-            id="fullname"
-            type="text"
-            name="fullname"
-            placeholder="Ex: Duong Bui"
-          />
-          <span className={cx('form-message')}>{errorName}</span>
-        </div>
         <div className={cx('form-group')}>
           <label htmlFor="email" className={cx('form-label')}>
             Email
@@ -178,6 +208,53 @@ function FormSignUp({ onClick }) {
           />
           <span className={cx('form-message')}>{errorPasswordRepeat}</span>
         </div>
+
+        <div className={cx('form-group')}>
+          <label htmlFor="fullname" className={cx('form-label')}>
+            Full Name
+          </label>
+          <input
+            className={cx(errorName ? 'border-error' : '')}
+            onChange={(e) => {
+              getValueName(e.target.value);
+            }}
+            onBlur={handleMessageName}
+            id="fullname"
+            type="text"
+            name="fullname"
+            placeholder="Ex: Duong Bui"
+          />
+          <span className={cx('form-message')}>{errorName}</span>
+        </div>
+
+        <div className={cx('form-group')}>
+          <label htmlFor="address" className={cx('form-label')}>
+            Address
+          </label>
+          <input
+            className={cx(errorAddress ? 'border-error' : '')}
+            onChange={(e) => {
+              getValueAddress(e.target.value);
+            }}
+            onBlur={handleMessageAddress}
+            id="address"
+            type="text"
+            name="address"
+            placeholder="Ex: Ha Noi - Viet Nam"
+          />
+          <span className={cx('form-message')}>{errorAddress}</span>
+        </div>
+
+        <div className={cx('form-group')}>
+          <label className={cx('label-gender')} htmlFor="gender">
+            Gender
+          </label>
+          <select onChange={(e) => getValueGender(e.target.value)} name="gender">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+        </div>
+
         <div className={cx('container-btn')}>
           <input className={cx('submid-btn')} type="submit" value="Sign Up" />
         </div>

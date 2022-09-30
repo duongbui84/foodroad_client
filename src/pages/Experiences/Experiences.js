@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './Experiences.module.scss';
 import Grid from '~/layouts/GridSystem/Grid';
 import Row from '~/layouts/GridSystem/Row';
-import { ExperiencesItem } from './ExperiencesItem';
+import { ExperiencesItem } from '../../components/ExperiencesItem';
 import { Button } from '~/components/Button';
 import { useState } from 'react';
 import routesConfig from '~/config/routes';
